@@ -1,0 +1,137 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "breast side",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "setSideReminder",
+                  "slots": [
+                      {
+                          "name": "side",
+                          "type": "Direction"
+                      },
+                      {
+                          "name": "time",
+                          "type": "AMAZON.TIME"
+                      }
+                  ],
+                  "samples": [
+                      "Remind me I fed from {side} {time}",
+                      "I fed from the {side} at {time}",
+                      "Remind me im feeding from the {side} breast",
+                      "Remind me im feeding from the {side} side",
+                      "Remind me im feeding from the {side}",
+                      "Im feeding from the {side} side"
+                  ]
+              },
+              {
+                  "name": "getLastSide",
+                  "slots": [
+                      {
+                          "name": "babyname",
+                          "type": "AMAZON.FirstName"
+                      },
+                      {
+                          "name": "side",
+                          "type": "Direction"
+                      }
+                  ],
+                  "samples": [
+                      "when did I last feed {babyname}",
+                      "what time did I last feed",
+                      "when did I last feed",
+                      "what was the last saved side",
+                      "tell me the last side i fed from {side}",
+                      "last side",
+                      "tell me last side",
+                      "which breast did I feed from last",
+                      "what side did I last feed from"
+                  ]
+              },
+              {
+                  "name": "confirmationOfLeft",
+                  "slots": [],
+                  "samples": [
+                      "was my last side the left",
+                      "did I last feed from my left breast"
+                  ]
+              },
+              {
+                  "name": "confirmationOfRight",
+                  "slots": [],
+                  "samples": [
+                      "did I last feed from my right breast",
+                      "was my last side the right"
+                  ]
+              },
+              {
+                  "name": "ResetIntent",
+                  "slots": [],
+                  "samples": [
+                      "reset",
+                      "reset memory",
+                      "clear memory"
+                  ]
+              }
+          ],
+          "types": [
+              {
+                  "name": "Direction",
+                  "values": [
+                      {
+                          "id": "right",
+                          "name": {
+                              "value": "right"
+                          }
+                      },
+                      {
+                          "id": "left",
+                          "name": {
+                              "value": "left"
+                          }
+                      }
+                  ]
+              }
+          ]
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "ResetIntent",
+                  "confirmationRequired": true,
+                  "prompts": {
+                      "confirmation": "Confirm.Intent.580860567377"
+                  },
+                  "slots": []
+              }
+          ]
+      },
+      "prompts": [
+          {
+              "id": "Confirm.Intent.580860567377",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Are you sure you want to clear all your saved data"
+                  }
+              ]
+          }
+      ]
+  }
+}
